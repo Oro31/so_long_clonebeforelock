@@ -18,6 +18,28 @@ static void	ft_set_rsl(int i, int j, t_rsl *rsl)
 	rsl->h = j;
 }
 
+static void	ft_check_exit(t_map *monde, int j, int i)
+{
+	if (monde->posxe >= 0)
+		monde->map[j][i] = '9';
+	else if (monde->posxe == -1)
+	{
+		monde->posxe = i;
+		monde->posye = j;
+	}
+}
+
+static void	ft_check_player(t_vars *vars, t_map *monde, int j, int i)
+{
+	if (vars->ply.posx >= 0)
+		monde->map[j][i] = '9';
+	else if (vars->ply.posx == -1)
+	{
+		vars->ply.posx = i;
+		vars->ply.posy = j;
+	}	
+}
+
 static void	ft_check_assets(t_vars *vars, t_map *monde, t_rsl *rsl)
 {
 	int	i;
@@ -33,15 +55,9 @@ static void	ft_check_assets(t_vars *vars, t_map *monde, t_rsl *rsl)
 			if (monde->map[j][i] == 'C')
 				monde->ncol++;
 			else if (monde->map[j][i] == 'E')
-			{
-				monde->posxe = i;
-				monde->posye = j;
-			}
+				ft_check_exit(monde, j, i);
 			else if (monde->map[j][i] == 'P')
-			{
-				vars->ply.posx = i;
-				vars->ply.posy = j;
-			}
+				ft_check_player(vars, monde, j, i);
 		}
 	}
 	ft_set_rsl(i, j, rsl);

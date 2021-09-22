@@ -66,6 +66,8 @@ char	*ft_linemap_fill(char *line, int maxlen)
 	if (tmp == NULL)
 		return (NULL);
 	tmp[len] = '\0';
+	if (len == 0)
+		return (tmp);
 	i = 0;
 	while (i < len)
 	{

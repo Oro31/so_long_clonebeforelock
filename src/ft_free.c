@@ -24,7 +24,7 @@ void	ft_free_sprites(t_vars *vars)
 		mlx_destroy_image(vars->mlx, vars->monde.cdoor.img);
 	if (vars->monde.odoor.img)
 		mlx_destroy_image(vars->mlx, vars->monde.odoor.img);
-	vars->xpm = 1;
+	vars->xpm = 0;
 }
 
 void	ft_free_map(t_map *monde)

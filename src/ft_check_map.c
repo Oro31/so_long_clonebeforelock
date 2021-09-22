@@ -41,7 +41,6 @@ static	int	ft_ischar_valid(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			printf("map[i][j] = %c\n", map[i][j]);
 			if (!ft_ismap_member(map[i][j]))
 				return (0);
 			j++;
